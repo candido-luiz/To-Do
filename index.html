@@ -10,7 +10,7 @@
     <div class="model">
         <div class="toDoItem">
             <div class="toDoItem-description">
-                <input type="checkbox" class="checkbox" onclick="checkItem(this, event)">
+                <input type="checkbox" class="checkbox" onclick="checkItem(this)">
                 <p contenteditable="true"></p>
             </div>
             
@@ -27,9 +27,9 @@
             <div id="listItem"></div>
         </div>
     </div>
-    <button>Todos items</button>
-    <button>Items ativos</button>
-    <button>Items completados</button>
+    <button onclick="showAllItems()">Todos items</button>
+    <button onclick="showActive()">Items ativos</button>
+    <button onclick="showCompleted()">Items completados</button>
     <script src="script.js"></script>
 </body>
 </html>

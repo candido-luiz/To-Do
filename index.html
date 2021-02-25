@@ -10,11 +10,11 @@
     <div class="model">
         <div class="toDoItem">
             <div class="toDoItem-description">
-                <input type="checkbox" class="checkbox">
+                <input type="checkbox" class="checkbox" onclick="checkItem(this, event)">
                 <p contenteditable="true"></p>
             </div>
             
-            <button>Excluir</button>
+            <button onclick="deleteItem(this)">Excluir</button>
         </div>
     </div>
     <div class="container">

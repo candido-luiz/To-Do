@@ -34,12 +34,14 @@ function checkItem(checkbox){
         activeItems = activeItems.replace(checkbox.closest(".toDoItem").outerHTML, "");
         checkbox.parentNode.querySelector("p").style.textDecoration = "line-through";
         checkbox.parentNode.querySelector("p").style.color = "#989898";
+        checkbox.setAttribute("checked", "true");
         completedItems += checkbox.closest(".toDoItem").outerHTML;
     }
     else{
         completedItems = completedItems.replace(checkbox.closest(".toDoItem").outerHTML, "");
         checkbox.parentNode.querySelector("p").style.textDecoration = "none";
         checkbox.parentNode.querySelector("p").style.color = "#ffffff";
+        checkbox.removeAttribute("checked");
         activeItems += checkbox.closest(".toDoItem").outerHTML;
     }
     allItems = listItem.innerHTML;

@@ -26,12 +26,16 @@ function deleteItem(deleteButton){
     }else{
         activeItems = activeItems.replace(deleteButton.closest(".toDoItem").outerHTML, "");
     }
+    allItems = allItems.replace(deleteButton.closest(".toDoItem").outerHTML, "");
     listItem.removeChild(deleteButton.parentNode);
 }
 
 function checkItem(checkbox){
+    
     if(checkbox.checked){
         activeItems = activeItems.replace(checkbox.closest(".toDoItem").outerHTML, "");
+        
+
         checkbox.parentNode.querySelector("p").style.textDecoration = "line-through";
         checkbox.parentNode.querySelector("p").style.color = "#989898";
         checkbox.setAttribute("checked", "true");
@@ -44,15 +48,28 @@ function checkItem(checkbox){
         checkbox.removeAttribute("checked");
         activeItems += checkbox.closest(".toDoItem").outerHTML;
     }
+
     allItems = listItem.innerHTML;
+    // removeFromList(checkbox);
 }
 
 function showAllItems(){
     listItem.innerHTML = allItems;
+    listItem.dataset.type = "all";
 }
 function showActive(){
     listItem.innerHTML = activeItems;
+    listItem.dataset.type = "active";
 }
 function showCompleted(){
     listItem.innerHTML = completedItems;
+    listItem.dataset.type = "completed";
+}
+
+function removeFromList(item){
+    if(listItem.dataset.type == "active"){
+        listItem.removeChild(item.closest(".toDoItem"));
+    }else if(listItem.dataset.type == "completed"){
+        listItem.removeChild(item.closest(".toDoItem"));
+    }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="model">
+        <div class="toDoItem">
+            <div class="toDoItem-description">
+                <input type="checkbox" class="checkbox">
+                <p contenteditable="true"></p>
+            </div>
+            
+            <button>Excluir</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="toDo">
+            <div class="createToDo">
+                <input type="text" name="typeItem" id="typeItem" placeholder="Escreva seu item to-do">
+                <button id="addItem">Adicionar</button>
+            </div>
+        
+            <div id="listItem"></div>
+        </div>
+    </div>
+    <button>Todos items</button>
+    <button>Items ativos</button>
+    <button>Items completados</button>
+    <script src="script.js"></script>
+</body>
+</html>

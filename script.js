@@ -31,7 +31,8 @@ function deleteItem(deleteButton){
 }
 
 function checkItem(checkbox){
-    
+    let originalItem = checkbox.closest(".toDoItem").outerHTML;
+
     if(checkbox.checked){
         activeItems = activeItems.replace(checkbox.closest(".toDoItem").outerHTML, "");
         
@@ -40,6 +41,7 @@ function checkItem(checkbox){
         checkbox.parentNode.querySelector("p").style.color = "#989898";
         checkbox.setAttribute("checked", "true");
         completedItems += checkbox.closest(".toDoItem").outerHTML;
+       
     }
     else{
         completedItems = completedItems.replace(checkbox.closest(".toDoItem").outerHTML, "");
@@ -49,8 +51,8 @@ function checkItem(checkbox){
         activeItems += checkbox.closest(".toDoItem").outerHTML;
     }
 
-    allItems = listItem.innerHTML;
-    // removeFromList(checkbox);
+    allItems = allItems.replace(originalItem, checkbox.closest(".toDoItem").outerHTML);
+    removeFromList(checkbox);
 }
 
 function showAllItems(){

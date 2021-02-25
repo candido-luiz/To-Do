@@ -18,13 +18,13 @@ function addItem(){
         inputToDo.value = null;
 
         allItems = listItem.innerHTML;
-        activeItems += toDoItem.innerHTML;
+        activeItems += toDoItem.outerHTML;
     }
 }
 
 function deleteItem(){
     if(this.parentNode.querySelector(".checkbox").checked){
-        completedItems = completedItems.replace(this.parentNode.innerHTML, "");
+        completedItems = completedItems.replace(this.closest(".toDoItem").outerHTML, "");
     }
     listItem.removeChild(this.parentNode);
 }
@@ -32,9 +32,9 @@ function checkItem(event){
     if(event.target.checked){
         this.parentNode.querySelector("p").style.textDecoration = "line-through";
         this.parentNode.querySelector("p").style.color = "#989898";
-        completedItems += this.closest(".toDoItem").innerHTML;
+        completedItems += this.closest(".toDoItem").outerHTML;
     }else{
-        completedItems = completedItems.replace(this.closest(".toDoItem").innerHTML, "");
+        completedItems = completedItems.replace(this.closest(".toDoItem").outerHTML, "");
         this.parentNode.querySelector("p").style.textDecoration = "none";
         this.parentNode.querySelector("p").style.color = "#ffffff";
         

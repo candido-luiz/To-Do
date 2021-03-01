@@ -84,16 +84,21 @@ function showAllItems(){
     this.event.preventDefault();
     listItem.innerHTML = allItems;
     listItem.dataset.type = "all";
+    changeSelectedStatus(".active", ".completed", ".allItems");
 }
 function showActive(){
     this.event.preventDefault();
     listItem.innerHTML = activeItems;
     listItem.dataset.type = "active";
+    changeSelectedStatus(".allItems", ".completed", ".active");
+
 }
 function showCompleted(){
     this.event.preventDefault();
     listItem.innerHTML = completedItems;
     listItem.dataset.type = "completed";
+    changeSelectedStatus(".allItems", ".active", ".completed");
+
 }
 
 function removeFromList(item){
@@ -102,4 +107,17 @@ function removeFromList(item){
     }else if(listItem.dataset.type == "completed"){
         listItem.removeChild(item.closest(".toDoItem"));
     }
+}
+
+function changeSelectedStatus(class1, class2, class3){
+
+    if(document.querySelector(class1).classList.contains("selected")){
+        document.querySelector(class1).classList.remove("selected");
+    }else if(document.querySelector(class2).classList.contains("selected")){
+        document.querySelector(class2).classList.remove("selected");
+    }
+    if(!document.querySelector(class3).classList.contains("selected")){
+        document.querySelector(class3).classList.add("selected");
+    }
+
 }

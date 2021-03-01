@@ -79,3 +79,7 @@
 .model{
     display: none;
 }
+
+.selected{
+    background-color: #dddddd52;
+}

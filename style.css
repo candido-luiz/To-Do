@@ -29,7 +29,7 @@
     border: none;
     border-radius: 3px;
     padding: 10px;
-    background-color: darkslateblue;
+    background-color: #483d8b;
     color: #fff;
 }
 #listItem{
@@ -37,14 +37,14 @@
     flex-direction: column;
     border-radius: 3px;
     margin-top: 5px;
-    background-color: darkslateblue;
 }
 .toDoItem{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
-    margin: 3px;
+    border-bottom: 1px solid black;
+    background-color: #483d8b;
 }
 .toDoItem-description{
     display: flex;
@@ -60,6 +60,15 @@
 }
 .toDoItem button{
     padding: 5px 6px;
+}
+.listButtons{
+    display: flex;
+    background-color: #483d8b;
+    padding: 10px 5px;
+}
+.listButtons button{
+    padding: 5px 10px;
+    margin-right: 5px;
 }
 .model{
     display: none;

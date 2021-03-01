@@ -2,11 +2,25 @@ const inputToDo = document.querySelector("#typeItem");
 const addTodoButton = document.querySelector("#addItem");
 const listItem = document.querySelector("#listItem");
 const itemModel = document.querySelector(".model .toDoItem");
+
 let allItems = "";
 let activeItems = "";
 let completedItems = "";
 
 addTodoButton.addEventListener("click",addItem);
+
+function loadInfo(){
+    if (localStorage.getItem("allItems") != null){
+        allItems = localStorage.getItem("allItems");
+        listItem.innerHTML = allItems;
+    }
+    if (localStorage.getItem("activeItems") != null){
+        activeItems = localStorage.getItem("activeItems");
+    }
+    if (localStorage.getItem("completedItems") != null){
+        completedItems = localStorage.getItem("completedItems");
+    }
+}
 
 function addItem(){
     if(inputToDo.value != ""){
@@ -17,16 +31,23 @@ function addItem(){
 
         allItems = listItem.innerHTML;
         activeItems += toDoItem.outerHTML;
+
+        localStorage.setItem("allItems", allItems);
+        localStorage.setItem("activeItems", activeItems);
     }
 }
 
 function deleteItem(deleteButton){
     if(deleteButton.parentNode.querySelector(".checkbox").checked){
         completedItems = completedItems.replace(deleteButton.closest(".toDoItem").outerHTML, "");
+        localStorage.setItem("completedItems", completedItems);
     }else{
         activeItems = activeItems.replace(deleteButton.closest(".toDoItem").outerHTML, "");
+        localStorage.setItem("activeItems", activeItems);
     }
     allItems = allItems.replace(deleteButton.closest(".toDoItem").outerHTML, "");
+    localStorage.setItem("allItems", allItems);
+
     listItem.removeChild(deleteButton.parentNode);
 }
 
@@ -35,13 +56,11 @@ function checkItem(checkbox){
 
     if(checkbox.checked){
         activeItems = activeItems.replace(checkbox.closest(".toDoItem").outerHTML, "");
-        
-
         checkbox.parentNode.querySelector("p").style.textDecoration = "line-through";
         checkbox.parentNode.querySelector("p").style.color = "#989898";
         checkbox.setAttribute("checked", "true");
         completedItems += checkbox.closest(".toDoItem").outerHTML;
-       
+        
     }
     else{
         completedItems = completedItems.replace(checkbox.closest(".toDoItem").outerHTML, "");
@@ -53,6 +72,10 @@ function checkItem(checkbox){
 
     allItems = allItems.replace(originalItem, checkbox.closest(".toDoItem").outerHTML);
     removeFromList(checkbox);
+
+    localStorage.setItem("allItems", allItems);
+    localStorage.setItem("activeItems", activeItems);
+    localStorage.setItem("completedItems", completedItems);
 }
 
 function showAllItems(){

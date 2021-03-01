@@ -56,14 +56,17 @@ function checkItem(checkbox){
 }
 
 function showAllItems(){
+    this.event.preventDefault();
     listItem.innerHTML = allItems;
     listItem.dataset.type = "all";
 }
 function showActive(){
+    this.event.preventDefault();
     listItem.innerHTML = activeItems;
     listItem.dataset.type = "active";
 }
 function showCompleted(){
+    this.event.preventDefault();
     listItem.innerHTML = completedItems;
     listItem.dataset.type = "completed";
 }

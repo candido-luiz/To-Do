@@ -26,10 +26,12 @@ function addItem(){
     if(inputToDo.value != ""){
         toDoItem = itemModel.cloneNode(true);
         toDoItem.querySelector("p").innerHTML = inputToDo.value;
-        listItem.appendChild(toDoItem);
+        if(listItem.dataset.type != "completed"){
+            listItem.appendChild(toDoItem);
+        }
         inputToDo.value = null;
 
-        allItems = listItem.innerHTML;
+        allItems += toDoItem.outerHTML;
         activeItems += toDoItem.outerHTML;
 
         localStorage.setItem("allItems", allItems);

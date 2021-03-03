@@ -23,6 +23,7 @@ function loadInfo(){
 }
 
 function addItem(){
+    inputToDo.value = inputToDo.value.trim();
     if(inputToDo.value != ""){
         toDoItem = itemModel.cloneNode(true);
         toDoItem.querySelector("p").innerHTML = inputToDo.value;

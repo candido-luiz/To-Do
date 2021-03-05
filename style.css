@@ -3,9 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: #333533;
+}
 .container{
     display: flex;
     justify-content: center;
+    background-color: #242423;
+    max-width: 700px;
+    min-height: 400px;
+    padding: 15px 0;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 4px;
 }
 .toDo{
     flex: 1;
@@ -17,19 +27,19 @@
 }
 .createToDo input{
     flex:1;
-    border: none;
+    border: 1px solid #f5cb5c;
     outline: none;
     border-radius: 3px;
     padding: 10px;
     margin-right: 5px;
-    background-color: rgb(24 5 69 / 0.83);
+    background-color: #141514;
     color: #fff;
 }
 .createToDo button{
-    border: none;
+    border: 1px solid #f5cb5c;
     border-radius: 3px;
     padding: 10px;
-    background-color: #483d8b;
+    background-color: #242423;
     color: #fff;
 }
 #listItem{
@@ -43,8 +53,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px;
-    border-bottom: 1px solid black;
-    background-color: #483d8b;
+    margin-bottom: 5px;
+    background-color: #333533;
+    box-shadow: 0px 1px 2px 0px #f5cb5c;
 }
 .toDoItem-description{
     display: flex;

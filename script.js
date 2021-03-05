@@ -22,7 +22,8 @@ function loadInfo(){
     }
 }
 
-function addItem(){
+function addItem(event){
+    event.preventDefault();
     inputToDo.value = inputToDo.value.trim();
     if(inputToDo.value != ""){
         toDoItem = itemModel.cloneNode(true);

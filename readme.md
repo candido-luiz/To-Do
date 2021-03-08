@@ -1,6 +1,6 @@
 # Todo App 
  
-Lista de tarefas simples, criada com HTML, CSS e JavaScript.
+Lista de tarefas simples, criada com HTML, CSS e JavaScript. Visualize o projeto [aqui](https://candido-luiz.github.io/To-Do/)
 
 ## Features
  

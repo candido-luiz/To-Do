@@ -2,7 +2,7 @@ const inputToDo = document.querySelector("#typeItem");
 const addTodoButton = document.querySelector("#addItem");
 const listItem = document.querySelector("#listItem");
 const itemModel = document.querySelector(".model .toDoItem");
-
+//teste
 let allItems = "";
 let activeItems = "";
 let completedItems = "";
